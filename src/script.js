@@ -375,7 +375,7 @@ gltfLoader.load("/models/main.glb", (gltf) => {
             child.name == "Plane003" ||
             child.name == "Cube179" ||
             child.name ==
-                "4ffa09e45279eb6eefa3b2cf85fc2c9e-lines-scale-2_00x-gigapixe001" ||
+            "4ffa09e45279eb6eefa3b2cf85fc2c9e-lines-scale-2_00x-gigapixe001" ||
             child.name == "Cube085"
         ) {
             child.traverse((child) => {
@@ -393,8 +393,12 @@ gltfLoader.load("/models/main.glb", (gltf) => {
  * Action
  */
 
-window.addEventListener("click", (event) => {    
+window.addEventListener("click", (event) => {
     if (pointedObject.name == "Cube085") { // Phone
+        document.querySelector(".modal-header").innerHTML = "Phone";
+        document.querySelector(".modal-body").innerHTML = "Slice002";
+        document.querySelector(".modal").classList.remove('fade-out');
+        document.querySelector(".modal").classList.add('fade-in');
         gsap.to(camera.position, {
             duration: 1,
             x: Position_phone.x,
@@ -412,6 +416,10 @@ window.addEventListener("click", (event) => {
         pointedObject.name == "0(17)009" ||
         pointedObject.name == "Plane002_3"
     ) { // Storage
+        document.querySelector(".modal-header").innerHTML = "Plane002_3";
+        document.querySelector(".modal-body").innerHTML = "Slice002";
+        document.querySelector(".modal").classList.remove('fade-out');
+        document.querySelector(".modal").classList.add('fade-in');
         gsap.to(camera.position, {
             duration: 1,
             x: Position_storage.x,
@@ -440,6 +448,10 @@ window.addEventListener("click", (event) => {
         });
     }
     if (pointedObject.name == "Cube006") { // Juice2
+        document.querySelector(".modal-header").innerHTML = "Juice2";
+        document.querySelector(".modal-body").innerHTML = "Slice002";
+        document.querySelector(".modal").classList.remove('fade-out');
+        document.querySelector(".modal").classList.add('fade-in');
         gsap.to(camera.position, {
             duration: 1,
             x: Position_Juice2.x,
@@ -454,6 +466,10 @@ window.addEventListener("click", (event) => {
         });
     }
     if (pointedObject.name == "Cube097" || pointedObject.name == "Slice002") { // Juice1
+        document.querySelector(".modal-header").innerHTML = "Slice002";
+        document.querySelector(".modal-body").innerHTML = "Slice002";
+        document.querySelector(".modal").classList.remove('fade-out');
+        document.querySelector(".modal").classList.add('fade-in');
         gsap.to(camera.position, {
             duration: 1,
             x: Position_Juice1.x,
@@ -468,12 +484,20 @@ window.addEventListener("click", (event) => {
         });
     }
 });
+document.querySelector('canvas').addEventListener('pointermove', (event) => {
+    if (event.buttons == 1) {
+        document.querySelector(".modal").classList.remove('fade-in');
+        document.querySelector(".modal").classList.add('fade-out');
+    }
+})
 window.addEventListener("pointermove", (event) => {
     mouse.x = (event.clientX / window.innerWidth) * 2 - 1;
     mouse.y = -(event.clientY / window.innerHeight) * 2 + 1;
 });
 window.addEventListener("keydown", (event) => {
     if (event.key === "Escape") {
+        document.querySelector(".modal").classList.remove('fade-in');
+        document.querySelector(".modal").classList.add('fade-out');
         gsap.to(camera.position, {
             duration: 1,
             x: 5,
@@ -487,7 +511,7 @@ window.addEventListener("keydown", (event) => {
             z: 0,
         });
     }
-  });
+});
 
 // Auto Resize
 window.addEventListener("resize", () => {
@@ -523,7 +547,7 @@ const animate = () => {
         } else {
             canvas.style.cursor = "default";
         }
-    } catch {}
+    } catch { }
 
     // Update controls
     orbitControls.update();

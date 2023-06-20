@@ -9,6 +9,42 @@
             href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
         />
         <link rel="stylesheet" href="./style.css" />
+        <style>
+            .modal {
+                position: absolute;
+                top: 25px;
+                right: 25px;
+                width: 30%;
+                padding: 1%;
+                background-color: rgba(100, 100, 100, 0.5);
+                border-radius: 8px;
+                z-index: 1;
+                transition: opacity 1s .1s ease-in-out;
+            }
+            .fade-in {
+                opacity: 1;
+            }
+            .fade-out {
+                opacity: 0;
+            }
+            .modal-header {
+                margin: auto;
+                text-align: center;
+                padding: 3%;
+                padding-bottom: 0;
+                border: none;
+                border-bottom: 1px solid rgba(0, 0, 0, 0.8);
+                font-size: 30px;
+                color: white;
+            }
+            .modal-body {
+                margin: auto;
+                text-align: justify;
+                padding: 1%;
+                font-size: 20px;
+                color: white;
+            }
+        </style>
     </head>
     <body>
         <div id="blocker" style="z-index: 1">
@@ -20,6 +56,14 @@
         </div>
         <div class="progress" style="z-index: 10000">
             <div class="progressbar"></div>
+        </div>
+        <div class="modal fade-out">
+            <div class="modal-header">
+                Title
+            </div>
+            <div class="modal-body">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto, pariatur. Ipsum laboriosam illo, voluptatibus animi velit inventore, illum, amet architecto optio facere temporibus repudiandae repellendus iste necessitatibus? Est, facilis molestiae!
+            </div>
         </div>
         <canvas class="webgl"></canvas>
         <script type="module" src="./script.js"></script>
