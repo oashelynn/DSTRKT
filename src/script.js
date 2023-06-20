@@ -1,9 +1,7 @@
 import * as THREE from "three";
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls.js";
-import * as dat from "lil-gui";
 import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader.js";
 import { DRACOLoader } from "three/examples/jsm/loaders/DRACOLoader.js";
-import { RoomEnvironment } from "three/examples/jsm/environments/RoomEnvironment.js";
 
 import { gsap } from "gsap";
 
@@ -14,8 +12,6 @@ import * as position from "./lightPosition.js";
  ****** Three.js Initial ******
  ******************************
  */
-// Debug
-// const gui = new dat.GUI();
 
 /**
  * Init
@@ -59,13 +55,6 @@ const targetDirection = new THREE.Vector3(-1, 0, 0);
 // Lights
 const ambientLight = new THREE.AmbientLight(0x161e33, 0.8);
 scene.add(ambientLight);
-
-// ModelViewer
-// let pmremGenerator = new THREE.PMREMGenerator(renderer);
-// scene.environment = pmremGenerator.fromScene(
-//   new RoomEnvironment(),
-//   0.04
-// ).texture;
 
 // Raycaster
 const raycaster = new THREE.Raycaster();
